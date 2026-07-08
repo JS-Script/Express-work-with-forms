@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <h1>Todo List</h1>
+
+    <form id="addForm">
+        <input type="text" id="titleInput" placeholder="Название задачи" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+
+    <ul id="todoList">
+        <% if (todos.length === 0) { %>
+            <p>Нет задач</p>
+        <% } else { %>
+            <% todos.forEach(todo => { %>
+                <li data-id="<%= todo.id %>">
+                    <span class="todo-text <%= todo.completed ? 'completed' : '' %>">
+                        <%= todo.title %>
+                    </span>
+                    <input type="checkbox" <%= todo.completed ? 'checked' : '' %> class="todo-checkbox" data-id="<%= todo.id %>">
+                    <button class="delete-btn" data-id="<%= todo.id %>">Удалить</button>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
