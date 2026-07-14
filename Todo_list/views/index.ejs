@@ -14,24 +14,24 @@
         <button type="submit">Добавить</button>
     </form>
 
-
     <ul id="todoList">
         <% if (todos.length === 0) { %>
             <p>Нет задач</p>
         <% } else { %>
             <% todos.forEach(todo => { %>
-                <li data-id="<%= todo.id %>">
+                <li data-id="<%= todo._id %>">
                     <span class="todo-text <%= todo.completed ? 'completed' : '' %>">
                         <%= todo.title %>
                     </span>
-                    <input type="checkbox" <%= todo.completed ? 'checked' : '' %> class="todo-checkbox" data-id="<%= todo.id %>">
-                    <button class="delete-btn" data-id="<%= todo.id %>">Удалить</button>
+                    <input type="checkbox" <%= todo.completed ? 'checked' : '' %> class="todo-checkbox" data-id="<%= todo._id %>">
+                    <button class="delete-btn" data-id="<%= todo._id %>">Удалить</button>
                 </li>
             <% }); %>
         <% } %>
     </ul>
 
-    <script src="/script.js"></script>
+
+    <script src="/scripts/main.js"></script>
 
 </body>
 
